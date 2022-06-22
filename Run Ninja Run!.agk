@@ -41,9 +41,15 @@ output_path=
 
 [projectfiles]
 FILE_0=main.agc;-1
-FILE_1=C%3A%2FRun%20Ninja%20Run%21%2FLoader.agc;-1
-FILE_2=C%3A%2FRun%20Ninja%20Run%21%2Fmoving.agc;-1
-FILE_3=C%3A%2FRun%20Ninja%20Run%21%2Fcollision.agc;-1
+FILE_1=..%2FC%3A%2FRun%20Ninja%20Run%21%2FLoader.agc;-1
+FILE_2=..%2FC%3A%2FRun%20Ninja%20Run%21%2Fmoving.agc;-1
+FILE_3=..%2FC%3A%2FRun%20Ninja%20Run%21%2Fcollision.agc;-1
+FILE_4=Loader.agc;-1
+FILE_5=moving.agc;-1
+FILE_6=collision.agc;-1
+FILE_7=obstaculos.agc;-1
+FILE_8=background.agc;-1
+FILE_9=main%20menu.agc;-1
 
 [files]
 
