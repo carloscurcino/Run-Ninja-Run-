@@ -1,7 +1,6 @@
 moving:
 score=score+1
-PrintC("Movement: ")
-print(movement)
+
 if GetSpriteCollision(ninja,ground) = 1 or Jump = 1 
 		Fall=0  
 		
@@ -17,7 +16,7 @@ elseif Fall=1
 	ninjaY=ninjaY+3
 endif
 	
-if GetRawKeyPressed(32)  			
+if GetRawKeyPressed(32) or GetRawKeyPressed(87) or GetRawKeyPressed(38)  			
 	Jump=1  
 endif	
 
@@ -49,6 +48,11 @@ if Jump=1
 		endif	
 endif	
 
+if Jump=1 and(GetRawKeyPressed(40) or GetRawKeyPressed(83))
+	Fall=1
+	JumpTimer=40
+	Movement=50
+endif
 
 
 return
