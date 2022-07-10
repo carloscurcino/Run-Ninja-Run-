@@ -1,19 +1,48 @@
 
 background:
-
-/*if score = 200
-	velocity#=velocity#*1.2
-endif*/
-
-//Mover o chão. Dar sensação de movimento
-SetSpritePosition(ground, GetSpriteX(ground)-velocity#, GetSpriteY(ground))
-SetSpritePosition(box, GetSpriteX(box)-velocity#, GetSpriteY(box))
-
-if GetSpriteX(ground)=-1280
-	SetSpritePosition(ground, 0, GetSpriteY(ground))
-	SetSpritePosition(box, 823, 479)
+if score =0
+	SetSpriteVisible(moon, 1)
+	SetTextColor(5, 255, 255, 255, 255)
+	SetTextColor(4, 255, 255, 255, 255)
+elseif score =1500
+	sleep(100)
+	SetSpriteVisible(moon, 0)
+	SetTextColor(5, 0, 0, 0, 255)
+	SetTextColor(4, 0, 0, 0, 255)
+elseif score = 3000
+	sleep(100)
+	SetSpriteVisible(moon, 1)
+	SetTextColor(5, 255, 255, 255, 255)
+	SetTextColor(4, 255, 255, 255, 255)
+elseif score=5000
+	sleep(100)
+	SetSpriteVisible(moon, 0)
+	SetTextColor(5, 0, 0, 0, 255)
+	SetTextColor(4, 0, 0, 0, 255)
+elseif score=6500
+	sleep(100)
+	SetSpriteVisible(moon, 1)
+	SetTextColor(5, 255, 255, 255, 255)
+	SetTextColor(4, 255, 255, 255, 255)
+elseif score= 8000
+	sleep(100)
+	SetSpriteVisible(moon, 0)
+	SetTextColor(5, 0, 0, 0, 255)
+	SetTextColor(4, 0, 0, 0, 255)
+elseif score=9000
+	sleep(100)
+	SetSpriteVisible(moon, 1)
+	SetTextColor(5, 255, 255, 255, 255)
+	SetTextColor(4, 255, 255, 255, 255)
 endif
 
+
+//Mover o chão. Dar sensação de movimento
+SetSpritePosition(ground, GetSpriteX(ground)-velocity, GetSpriteY(ground))
+
+if GetSpriteX(ground)<-1280.0
+	SetSpritePosition(ground, x-0, GetSpriteY(ground))
+endif
 
 
 /*PrintC("xscroll#: ")

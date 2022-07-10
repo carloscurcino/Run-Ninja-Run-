@@ -1,27 +1,23 @@
 collision:
-randy=Random(0, 760)
+//Não passar do chão
 if GetSpriteCollision(ninja, ground)=1
 	ninjaY=403
 	SetSpritePosition(ninja, ninjaX, ninjaY)
 endif
+
 //Colisão do ninja com os obstaculos
-if GetSpriteCollision(ninja, espinho1)=1 or GetSpriteCollision(ninja, espinho2)=1 or GetSpriteCollision(ninja, box)=1
-	xrand1=Random(1302, 1600)
-	if GetSpriteX(box)=xrand1
-		xrand1=Random(1302, 1600)
-	endif
-	xrand2=Random(1800, 2200)
-	if GetSpriteX(box)=xrand2
+if GetSpriteCollision(ninja, espinho1)=1 or GetSpriteCollision(ninja, espinho2)=1 
+		PlaySound(deathsound1)
+		xrand1=Random(1280, 1600)
 		xrand2=Random(1800, 2200)
-	endif
-	if xrand1<>GetSpriteX(box)
+		xrand3=Random(2300, 2600)
 		SetSpritePosition(espinho1, xrand1, 412)
-	endif
-	if xrand2<>GetSpriteX(box)
 		SetSpritePosition(espinho2, xrand2, 412)
-	endif	
+		SetSpritePosition(samurai, xrand3, GetSpriteY(samurai))
+	//endif	
 	score=0
 	gameover=1
+	velocity=10
 	Movement=0
 	Fall=1
 	JumpTimer=0
@@ -29,35 +25,30 @@ if GetSpriteCollision(ninja, espinho1)=1 or GetSpriteCollision(ninja, espinho2)=
 	StopSprite(ninja)
 	SetSpriteFrame(ninja, 5)
 endif
-//Colisão do ninja com o buraco
-if GetSpriteCollision(ninja, box)=1
-	SetSpritePosition(box, GetSpriteX(box)-150, 479)
+//Colisão do ninja com o samurai
+If GetSpriteCollision(ninja, samurai)=1
+	SetSpriteFrame(samurai, 1)
+	PlaySound(deathsound1)
+	xrand1=Random(1280, 1600)
+	xrand2=Random(1800, 2200)
+	xrand3=Random(2300, 2600)
+	SetSpritePosition(espinho1, xrand1, 412)
+	SetSpritePosition(espinho2, xrand2, 412)	
 	score=0
 	gameover=1
+	velocity=10
 	Movement=0
 	Fall=1
 	JumpTimer=0
 	Jump=0
 	StopSprite(ninja)
 	SetSpriteFrame(ninja, 5)
-endif
-
-
-/*
-if GetSpriteCollision(box, espinho1)
-	SetSpritePosition(espinho1, GetSpriteX(espinho1)+1000, GetSpriteY(espinho1))
 endif
 	
-if GetSpriteCollision(box, espinho2)
-	SetSpritePosition(espinho2, GetSpriteX(espinho2)+1000, GetSpriteY(espinho2))
+if GetSpriteCollision(ninja, samurai)=0
+	//SetSpriteFrame(samurai, 2)
 endif
-*/
 
-
-//Para os espinhos não ficarem colados(talvez não seja mt necessário)
-if GetSpriteCollision(espinho1, espinho2)
-	SetSpritePosition(espinho1, GetSpriteX(espinho1)+300, GetSpriteY(espinho1))
-endif
 
 return
 
